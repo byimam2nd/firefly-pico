@@ -1,0 +1,7 @@
+{
+  "buildCommand": "npm run generate",
+  "outputDirectory": ".output/public",
+  "env": {
+    "FIREFLY_URL": "https://firefly.exlion.dpdns.org"
+  }
+}

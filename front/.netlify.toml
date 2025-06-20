@@ -1,7 +1,0 @@
-[build]
-  command="npm run generate"
-  publish=".output/public"
-
-[build.environment]
-  FIREFLY_URL="https://firefly.exlion.dpdns.org"
-  TZ=Asia/Jakarta
