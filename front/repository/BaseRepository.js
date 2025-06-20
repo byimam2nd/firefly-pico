@@ -8,9 +8,24 @@ class BaseRepository {
   }
 
   getUrl() {
-    const appStore = useAppStore()
-    return `${appStore.picoBackendURL}/${this.endpoint}`
+  const appStore = useAppStore()
+
+  let baseURL = ''
+  try {
+    // ✅ Coba ambil dari runtime config (Vercel, Netlify, dll)
+    const runtimeConfig = useRuntimeConfig()
+    baseURL = runtimeConfig?.public?.FIREFLY_URL || ''
+  } catch (e) {
+    // ✅ Kalau di luar Nuxt context (misal: saat unit test), aman di-skip
   }
+
+  // ✅ Fallback ke value dari Pinia (picoBackendURL)
+  if (!baseURL) {
+    baseURL = appStore.picoBackendURL
+  }
+
+  return `${baseURL.replace(/\/$/, '')}/${this.endpoint.replace(/^\/+/, '')}`
+}
 
   async getOne(id) {
     let result = await axios.get(`${this.getUrl()}/${id}`)
