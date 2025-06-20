@@ -1,5 +1,5 @@
 {
-  "buildCommand": "npm run generate",
+  "buildCommand": "yarn generate",
   "outputDirectory": ".output/public",
   "env": {
     "FIREFLY_URL": "https://firefly.exlion.dpdns.org"
