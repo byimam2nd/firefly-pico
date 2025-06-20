@@ -29,7 +29,7 @@ export default defineNuxtConfig({
     public: {
       version: pkg.version,
       queryTimeout: 4000,
-      FIREFLY_URL: process.env.FIREFLY_URL || 'https://firefly.exlion.dpdns.org',
+      FIREFLY_URL: process.env.FIREFLY_URL,
       // mihai: 'test'
     },
   },
